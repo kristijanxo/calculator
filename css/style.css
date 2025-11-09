@@ -8,3 +8,80 @@
   margin: 0;
   padding: 0;
 }
+
+body {
+  background-color: #8c9eff;
+  font-family: Roboto, Helvetica, sans-serif;
+}
+
+#app {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  margin-top: 50px;
+  /* height: 100vh; */
+}
+
+.screen-container {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  justify-content: center;
+  height: 130px;
+  padding: 20px;
+  background-color: #1f2027;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.screen-top,
+.screen-bottom {
+  color: white;
+}
+
+.screen-top {
+  font-size: 20px;
+}
+
+.screen-bottom {
+  font-size: 38px;
+}
+.button-container {
+  padding: 10px;
+  background-color: #25272f;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.button {
+  height: 40px;
+  width: 65px;
+  margin: 3px;
+  border-radius: 6px;
+  background-color: #2b2d35;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.button-row {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.digit {
+  color: #fdfdfd;
+}
+
+.operator {
+  color: #e87675;
+}
+
+.button.equals {
+  background-color: #e87675;
+}
+
+.clear,
+.all-clear,
+.percentage {
+  color: #90a0f4;
+}
