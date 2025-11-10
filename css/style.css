@@ -9,12 +9,23 @@
   padding: 0;
 }
 
+:root {
+  --bg-color: #fcf5e5;
+  --screen-color: #fcf5e5;
+  --digit-button-color: #fcf5e5;
+  --operator-button-color: #fcf5e5;
+  --misc-button-color: #fcf5e5;
+  --equals-button-color: #fcf5e5;
+  --border-color: #2d342c;
+  --text-color: #2d342c;
+  --calc-color: #b6f3d4;
+}
+
 body {
-  background-color: #fcf5e5;
+  background-color: var(--bg-color);
   font-family: "Sora", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
-  color: white;
 }
 
 #app {
@@ -26,10 +37,10 @@ body {
 }
 
 .calculator {
-  background-color: #b6f3d4;
-  border: 4px solid #2d342c;
+  background-color: var(--calc-color);
+  border: 4px solid var(--border-color);
   border-radius: 12px;
-  box-shadow: 6px 6px 0 #2d342c;
+  box-shadow: 6px 6px 0 var(--border-color);
 }
 
 .screen-container {
@@ -39,8 +50,8 @@ body {
   justify-content: center;
   height: 140px;
   padding: 20px;
-  color: #2d342c;
-  background-color: #fcf5e5;
+  color: var(--text-color);
+  background-color: var(--screen-color);
   border: 4px solid #2d342c;
   border-radius: 12px;
   margin: 16px 16px 0 16px;
@@ -70,32 +81,45 @@ body {
   height: 65px;
   width: 65px;
   margin: 3px;
-  border: 2px solid #2d342c;
+  border: 3px solid var(--border-color);
   border-radius: 12px;
-  box-shadow: 3px 3px 0 #2d342c;
-  color: #2d342c;
-  background-color: #fcf5e5;
+  box-shadow: 3px 3px 0 var(--border-color);
+  color: var(--text-color);
   font-family: inherit;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   vertical-align: middle;
   cursor: pointer;
   transition: all 0.1s ease-in-out;
 }
 .button:hover {
-  box-shadow: 2px 2px #2d342c; /* smaller shadow on hover */
+  box-shadow: 2px 2px var(--border-color); /* smaller shadow on hover */
   transform: translate(2px, 2px); /* nudge down for a press effect */
 }
 .button:active {
-  box-shadow: 0 0 0 #2d342c; /* shadow disappears */
+  box-shadow: 0 0 0 var(--border-color); /* shadow disappears */
   transform: translate(3px, 3px); /* looks "pressed down" */
+}
+
+.button.digit {
+  background-color: var(--digit-button-color);
+}
+.button.operator {
+  background-color: var(--operator-button-color);
+}
+.button.misc {
+  background-color: var(--misc-button-color);
+}
+#equals {
+  background-color: var(--equals-button-color);
 }
 
 #zero {
   width: 140px;
 }
+
 #backspace {
-  font-size: 46px;
+  font-size: 50px;
   font-weight: 100;
 }
 
@@ -104,5 +128,5 @@ body {
 }
 #pop-btn:active {
   transform: scale(1.45);
-  box-shadow: 12px 12px 0 #2d342c; /* “exploding” shadow */
+  box-shadow: 12px 12px 0 var(--border-color); /* “exploding” shadow */
 }
