@@ -69,7 +69,7 @@ function divide(a, b) {
   return a / b;
 }
 
-function operate(operator, a, b) {
+function operate(a, operator, b) {
   switch (operator) {
     case "+":
       return add(a, b);
@@ -86,7 +86,11 @@ function operate(operator, a, b) {
 }
 
 function updateScreenContent() {
-  screenBottomRow.textContent = inputArray.join("");
+  if (inputArray.length === 0) {
+    screenBottomRow.textContent = "0";
+  } else {
+    screenBottomRow.textContent = inputArray.join("");
+  }
 }
 
 function appendInput(input) {
