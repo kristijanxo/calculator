@@ -6,41 +6,48 @@
     <title>Calculator</title>
     <link href="./css/style.css" rel="stylesheet" />
     <script src="./main.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div id="app">
       <div class="calculator">
         <div class="screen-container">
-          <div class="screen-top">18 x 3 + 8</div>
-          <div class="screen-bottom">62</div>
+          <div class="screen-top-row">18 x 3 + 8</div>
+          <div class="screen-bottom-row">600</div>
         </div>
         <div class="button-container">
           <div class="button-row">
+            <button class="button backspace" type="button">&#9003;</button>
             <button class="button all-clear" type="button">AC</button>
-            <button class="button clear" type="button">C</button>
-            <button class="button percentage" type="button">%</button>
-            <button class="button operator" type="button">/</button>
+            <button class="button lol pop-btn"" type="button">POP</button>
+            <button class="button operator" type="button">&divide;</button>
           </div>
           <div class="button-row">
             <button class="button digit" type="button">7</button>
             <button class="button digit" type="button">8</button>
             <button class="button digit" type="button">9</button>
-            <button class="button operator" type="button">*</button>
+            <button class="button operator" type="button">&times;</button>
           </div>
           <div class="button-row">
             <button class="button digit" type="button">4</button>
             <button class="button digit" type="button">5</button>
             <button class="button digit" type="button">6</button>
-            <button class="button operator" type="button">-</button>
+            <button class="button operator" type="button">&minus;</button>
           </div>
           <div class="button-row">
             <button class="button digit" type="button">1</button>
             <button class="button digit" type="button">2</button>
             <button class="button digit" type="button">3</button>
-            <button class="button operator" type="button">+</button>
+            <button class="button operator" type="button">&plus;</button>
           </div>
           <div class="button-row">
-            <button class="button digit" type="button">0</button>
+            <button class="button digit zero" type="button">0</button>
             <button class="button digit" type="button">.</button>
             <button class="button equals" type="button">=</button>
           </div>

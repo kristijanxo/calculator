@@ -10,8 +10,11 @@
 }
 
 body {
-  background-color: #8c9eff;
-  font-family: Roboto, Helvetica, sans-serif;
+  background-color: #fcf5e5;
+  font-family: "Sora", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  color: white;
 }
 
 #app {
@@ -22,45 +25,64 @@ body {
   /* height: 100vh; */
 }
 
+.calculator {
+  background-color: #b6f3d4;
+  border: 4px solid #2d342c;
+  border-radius: 12px;
+  box-shadow: 6px 6px 0 #2d342c;
+}
+
 .screen-container {
   display: flex;
   flex-direction: column;
   text-align: right;
   justify-content: center;
-  height: 130px;
+  height: 140px;
   padding: 20px;
-  background-color: #1f2027;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
+  color: #2d342c;
+  background-color: #fcf5e5;
+  border: 4px solid #2d342c;
+  border-radius: 12px;
+  margin: 16px 16px 0 16px;
 }
 
-.screen-top,
-.screen-bottom {
-  color: white;
+.screen-top-row {
+  font-weight: 500;
+  font-size: 22px;
 }
-
-.screen-top {
-  font-size: 20px;
-}
-
-.screen-bottom {
-  font-size: 38px;
+.screen-bottom-row {
+  font-size: 40px;
+  font-weight: 700;
 }
 .button-container {
   padding: 10px;
-  background-color: #25272f;
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
 }
 
 .button {
-  height: 40px;
+  height: 65px;
   width: 65px;
   margin: 3px;
-  border-radius: 6px;
-  background-color: #2b2d35;
-  font-size: 20px;
-  font-weight: 800;
+  border: 2px solid #2d342c;
+  border-radius: 12px;
+  box-shadow: 3px 3px 0 #2d342c;
+  color: #2d342c;
+  background-color: #fcf5e5;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+.button:hover {
+  box-shadow: 2px 2px #2d342c; /* smaller shadow on hover */
+  transform: translate(2px, 2px); /* nudge down for a press effect */
+}
+.button:active {
+  box-shadow: 0 0 0 #2d342c; /* shadow disappears */
+  transform: translate(3px, 3px); /* looks "pressed down" */
 }
 
 .button-row {
@@ -68,20 +90,19 @@ body {
   margin-bottom: 4px;
 }
 
-.digit {
-  color: #fdfdfd;
+.button.zero {
+  width: 140px;
+}
+.button.backspace {
+  font-size: 46px;
+  font-weight: 100;
 }
 
-.operator {
-  color: #e87675;
+.pop-btn {
+  transition: all 0.13s ease-in-out;
 }
 
-.button.equals {
-  background-color: #e87675;
-}
-
-.clear,
-.all-clear,
-.percentage {
-  color: #90a0f4;
+.pop-btn:active {
+  transform: scale(1.45);
+  box-shadow: 12px 12px 0 #2d342c; /* “exploding” shadow */
 }
