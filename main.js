@@ -42,8 +42,25 @@ buttonContainer.addEventListener("click", (event) => {
       appendInput(8);
       break;
 
-    case "nine":
-      appendInput(9);
+    case "divide":
+      break;
+
+    case "multiply":
+      break;
+
+    case "minus":
+      break;
+
+    case "plus":
+      operator = "+";
+      storeValue();
+      clearInputArray();
+      break;
+
+    case "equals":
+      storeValue();
+      clearInputArray();
+      screenBottomRow.textContent = operate(operator, num1, num2);
       break;
 
     case "backspace":
@@ -69,7 +86,7 @@ function divide(a, b) {
   return a / b;
 }
 
-function operate(a, operator, b) {
+function operate(operator, a, b) {
   switch (operator) {
     case "+":
       return add(a, b);
@@ -98,8 +115,20 @@ function appendInput(input) {
   updateScreenContent();
 }
 
+function clearInputArray() {
+  inputArray.length = 0;
+}
+
+function storeValue() {
+  if (num1 === null) {
+    num1 = Number(inputArray.join(""));
+  } else if (num2 === null) {
+    num2 = Number(inputArray.join(""));
+  }
+}
+
 let inputArray = [];
 
-let operator;
-let num1;
-let num2;
+let operator = null;
+let num1 = null;
+let num2 = null;
