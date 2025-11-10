@@ -54,10 +54,16 @@ body {
   font-size: 40px;
   font-weight: 700;
 }
+
 .button-container {
   padding: 10px;
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
+}
+
+.button-row {
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
 .button {
@@ -85,24 +91,18 @@ body {
   transform: translate(3px, 3px); /* looks "pressed down" */
 }
 
-.button-row {
-  margin-top: 4px;
-  margin-bottom: 4px;
-}
-
-.button.zero {
+#zero {
   width: 140px;
 }
-.button.backspace {
+#backspace {
   font-size: 46px;
   font-weight: 100;
 }
 
-.pop-btn {
+#pop-btn {
   transition: all 0.13s ease-in-out;
 }
-
-.pop-btn:active {
+#pop-btn:active {
   transform: scale(1.45);
   box-shadow: 12px 12px 0 #2d342c; /* “exploding” shadow */
 }
