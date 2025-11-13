@@ -8,38 +8,47 @@ buttonContainer.addEventListener("click", (event) => {
   switch (target.id) {
     case "zero":
       appendInput(0);
+      updateBottomRowScreen();
       break;
 
     case "one":
       appendInput(1);
+      updateBottomRowScreen();
       break;
 
     case "two":
       appendInput(2);
+      updateBottomRowScreen();
       break;
 
     case "three":
       appendInput(3);
+      updateBottomRowScreen();
       break;
 
     case "four":
       appendInput(4);
+      updateBottomRowScreen();
       break;
 
     case "five":
       appendInput(5);
+      updateBottomRowScreen();
       break;
 
     case "six":
       appendInput(6);
+      updateBottomRowScreen();
       break;
 
     case "seven":
       appendInput(7);
+      updateBottomRowScreen();
       break;
 
     case "eight":
       appendInput(8);
+      updateBottomRowScreen();
       break;
 
     case "divide":
@@ -55,22 +64,26 @@ buttonContainer.addEventListener("click", (event) => {
       operator = "+";
       storeValue();
       clearInputArray();
+      console.log({ num1, num2, operator, inputArray, didCalculation });
       break;
 
     case "equals":
       storeValue();
+      manageOperation();
       clearInputArray();
-      screenBottomRow.textContent = operate(operator, num1, num2);
+      console.log({ num1, num2, operator, inputArray, didCalculation });
       break;
 
     case "backspace":
       inputArray.pop();
-      updateScreenContent();
+      updateBottomRowScreen();
+      console.log({ num1, num2, operator, inputArray, didCalculation });
       break;
 
     case "all-clear":
       clearAll();
-      updateScreenContent();
+      updateBottomRowScreen();
+      console.log({ num1, num2, operator, inputArray, didCalculation });
       break;
   }
 });
@@ -107,7 +120,18 @@ function operate(operator, a, b) {
   }
 }
 
-function updateScreenContent() {
+function manageOperation() {
+  if (operator && num1 && num2) {
+    result = operate(operator, num1, num2);
+    didCalculation = true;
+    num1 = result;
+    num2 = null;
+    inputArray.push(num1);
+    updateBottomRowScreen();
+  }
+}
+
+function updateBottomRowScreen() {
   if (inputArray.length === 0) {
     screenBottomRow.textContent = "0";
   } else {
@@ -116,8 +140,13 @@ function updateScreenContent() {
 }
 
 function appendInput(input) {
-  inputArray.push(input);
-  updateScreenContent();
+  if (didCalculation === true) {
+    clearInputArray();
+    inputArray.push(input);
+    didCalculation = false;
+  } else {
+    inputArray.push(input);
+  }
 }
 
 function clearInputArray() {
@@ -129,6 +158,7 @@ function clearAll() {
   operator = null;
   num1 = null;
   num2 = null;
+  didCalculation = false;
 }
 
 function storeValue() {
@@ -139,7 +169,14 @@ function storeValue() {
   }
 }
 
+function debugPrinter() {
+  console.log({ num1, num2, operator, inputArray, didCalculation });
+}
+
 let inputArray = [];
+
 let operator = null;
 let num1 = null;
 let num2 = null;
+
+let didCalculation = false;
