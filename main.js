@@ -67,6 +67,11 @@ buttonContainer.addEventListener("click", (event) => {
       inputArray.pop();
       updateScreenContent();
       break;
+
+    case "all-clear":
+      clearAll();
+      updateScreenContent();
+      break;
   }
 });
 
@@ -119,6 +124,13 @@ function clearInputArray() {
   inputArray.length = 0;
 }
 
+function clearAll() {
+  inputArray.length = 0;
+  operator = null;
+  num1 = null;
+  num2 = null;
+}
+
 function storeValue() {
   if (num1 === null) {
     num1 = Number(inputArray.join(""));
@@ -128,7 +140,6 @@ function storeValue() {
 }
 
 let inputArray = [];
-
 let operator = null;
 let num1 = null;
 let num2 = null;
