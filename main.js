@@ -68,7 +68,6 @@ buttonContainer.addEventListener("click", (event) => {
     case "equals":
       storeValue();
       manageOperation();
-      clearInputArray();
       break;
 
     case "backspace":
@@ -161,7 +160,7 @@ function clearAll() {
 function storeValue() {
   if (num1 === null) {
     num1 = Number(inputArray.join(""));
-  } else if (num2 === null) {
+  } else if (num2 === null && !didCalculation) {
     num2 = Number(inputArray.join(""));
   }
 }
