@@ -165,6 +165,10 @@ function manageOperation() {
     inputArray.push(num1);
     updateBottomRowScreen();
   }
+  if (operator === "/" && num2 === 0) {
+    clearAll();
+    screenBottomRow.textContent = "NOPE!";
+  }
 }
 
 function updateBottomRowScreen() {
