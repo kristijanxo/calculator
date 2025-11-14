@@ -1,6 +1,7 @@
 const screenTopRow = document.querySelector(".screen-top-row");
 const screenBottomRow = document.querySelector(".screen-bottom-row");
 const buttonContainer = document.querySelector(".button-container");
+const pointButton = document.querySelector("#point");
 
 buttonContainer.addEventListener("click", (event) => {
   let target = event.target;
@@ -56,8 +57,14 @@ buttonContainer.addEventListener("click", (event) => {
       break;
 
     case "point":
-      appendInput(".");
-      updateBottomRowScreen();
+      if (inputArray.length === 0 || didCalculation) {
+        appendInput("0");
+        appendInput(".");
+        updateBottomRowScreen();
+      } else {
+        appendInput(".");
+        updateBottomRowScreen();
+      }
       break;
 
     case "divide":
@@ -166,6 +173,7 @@ function updateBottomRowScreen() {
   } else {
     screenBottomRow.textContent = inputArray.join("");
   }
+  updateDecimalState();
 }
 
 function appendInput(input) {
@@ -195,6 +203,14 @@ function storeValue() {
     num1 = Number(inputArray.join(""));
   } else if (num2 === null && !didCalculation) {
     num2 = Number(inputArray.join(""));
+  }
+}
+
+function updateDecimalState() {
+  if (inputArray.includes(".")) {
+    pointButton.disabled = true;
+  } else {
+    pointButton.disabled = false;
   }
 }
 
