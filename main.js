@@ -51,23 +51,45 @@ buttonContainer.addEventListener("click", (event) => {
       break;
 
     case "divide":
+      storeValue();
+      manageOperation();
+      operator = "/";
+      if (!didCalculation) {
+        clearInputArray();
+      }
       break;
 
     case "multiply":
+      storeValue();
+      manageOperation();
+      operator = "*";
+      if (!didCalculation) {
+        clearInputArray();
+      }
       break;
 
     case "minus":
+      storeValue();
+      manageOperation();
+      operator = "-";
+      if (!didCalculation) {
+        clearInputArray();
+      }
       break;
 
     case "plus":
-      operator = "+";
       storeValue();
-      clearInputArray();
+      manageOperation();
+      operator = "+";
+      if (!didCalculation) {
+        clearInputArray();
+      }
       break;
 
     case "equals":
       storeValue();
       manageOperation();
+      num1 = null;
       break;
 
     case "backspace":
@@ -129,7 +151,7 @@ function manageOperation() {
 
 function updateBottomRowScreen() {
   if (inputArray.length === 0) {
-    screenBottomRow.textContent = "0";
+    screenBottomRow.textContent = 0;
   } else {
     screenBottomRow.textContent = inputArray.join("");
   }
