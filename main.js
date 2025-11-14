@@ -7,64 +7,58 @@ buttonContainer.addEventListener("click", (event) => {
   let target = event.target;
   switch (target.id) {
     case "zero":
-      appendInput(0);
+      appendDigit(0);
       updateBottomRowScreen();
       break;
 
     case "one":
-      appendInput(1);
+      appendDigit(1);
       updateBottomRowScreen();
       break;
 
     case "two":
-      appendInput(2);
+      appendDigit(2);
       updateBottomRowScreen();
       break;
 
     case "three":
-      appendInput(3);
+      appendDigit(3);
       updateBottomRowScreen();
       break;
 
     case "four":
-      appendInput(4);
+      appendDigit(4);
       updateBottomRowScreen();
       break;
 
     case "five":
-      appendInput(5);
+      appendDigit(5);
       updateBottomRowScreen();
       break;
 
     case "six":
-      appendInput(6);
+      appendDigit(6);
       updateBottomRowScreen();
       break;
 
     case "seven":
-      appendInput(7);
+      appendDigit(7);
       updateBottomRowScreen();
       break;
 
     case "eight":
-      appendInput(8);
+      appendDigit(8);
       updateBottomRowScreen();
       break;
 
     case "nine":
-      appendInput(8);
+      appendDigit(8);
       updateBottomRowScreen();
       break;
 
     case "point":
-      if (inputArray.length === 0 || didCalculation) {
-        appendInput("0");
-        appendInput(".");
-        updateBottomRowScreen();
-      } else {
-        appendInput(".");
-        updateBottomRowScreen();
-      }
+      appendDecimalPoint();
+      updateBottomRowScreen();
       break;
 
     case "divide":
@@ -180,13 +174,22 @@ function updateBottomRowScreen() {
   updateDecimalState();
 }
 
-function appendInput(input) {
+function appendDigit(input) {
   if (didCalculation === true) {
     clearInputArray();
     inputArray.push(input);
     didCalculation = false;
   } else {
     inputArray.push(input);
+  }
+}
+
+function appendDecimalPoint() {
+  didCalculation = false;
+  if (inputArray.length === 0) {
+    inputArray.push(0, ".");
+  } else {
+    inputArray.push(".");
   }
 }
 
@@ -211,7 +214,7 @@ function storeValue() {
 }
 
 function updateDecimalState() {
-  if (inputArray.includes(".")) {
+  if (inputArray.includes(".") || screenBottomRow.textContent.includes(".")) {
     pointButton.disabled = true;
   } else {
     pointButton.disabled = false;
