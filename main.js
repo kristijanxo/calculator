@@ -50,6 +50,16 @@ buttonContainer.addEventListener("click", (event) => {
       updateBottomRowScreen();
       break;
 
+    case "nine":
+      appendInput(8);
+      updateBottomRowScreen();
+      break;
+
+    case "point":
+      appendInput(".");
+      updateBottomRowScreen();
+      break;
+
     case "divide":
       storeValue();
       manageOperation();
@@ -139,7 +149,8 @@ function operate(operator, a, b) {
 
 function manageOperation() {
   if (operator && num1 && num2) {
-    result = operate(operator, num1, num2);
+    let result = operate(operator, num1, num2);
+    result = Math.ceil(result * 1000) / 1000;
     didCalculation = true;
     num1 = result;
     num2 = null;
