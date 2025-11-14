@@ -167,7 +167,7 @@ function manageOperation() {
 
 function updateBottomRowScreen() {
   if (inputArray.length === 0) {
-    screenBottomRow.textContent = 0;
+    screenBottomRow.textContent = "0";
   } else {
     screenBottomRow.textContent = inputArray.join("");
   }
@@ -175,6 +175,13 @@ function updateBottomRowScreen() {
 }
 
 function appendDigit(input) {
+  if (inputArray.length === 1 && inputArray[0] === 0) {
+    if (input === 0) {
+      return;
+    }
+    inputArray[0] = input;
+    return;
+  }
   if (didCalculation === true) {
     clearInputArray();
     inputArray.push(input);
@@ -232,3 +239,5 @@ let num1 = null;
 let num2 = null;
 
 let didCalculation = false;
+
+updateBottomRowScreen();
