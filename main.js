@@ -4,7 +4,6 @@ const buttonContainer = document.querySelector(".button-container");
 
 buttonContainer.addEventListener("click", (event) => {
   let target = event.target;
-
   switch (target.id) {
     case "zero":
       appendInput(0);
@@ -64,28 +63,25 @@ buttonContainer.addEventListener("click", (event) => {
       operator = "+";
       storeValue();
       clearInputArray();
-      console.log({ num1, num2, operator, inputArray, didCalculation });
       break;
 
     case "equals":
       storeValue();
       manageOperation();
       clearInputArray();
-      console.log({ num1, num2, operator, inputArray, didCalculation });
       break;
 
     case "backspace":
       inputArray.pop();
       updateBottomRowScreen();
-      console.log({ num1, num2, operator, inputArray, didCalculation });
       break;
 
     case "all-clear":
       clearAll();
       updateBottomRowScreen();
-      console.log({ num1, num2, operator, inputArray, didCalculation });
       break;
   }
+  logValues();
 });
 
 function add(a, b) {
@@ -126,6 +122,7 @@ function manageOperation() {
     didCalculation = true;
     num1 = result;
     num2 = null;
+    clearInputArray();
     inputArray.push(num1);
     updateBottomRowScreen();
   }
@@ -169,7 +166,7 @@ function storeValue() {
   }
 }
 
-function debugPrinter() {
+function logValues() {
   console.log({ num1, num2, operator, inputArray, didCalculation });
 }
 
