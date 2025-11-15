@@ -101,6 +101,7 @@ buttonContainer.addEventListener("click", (event) => {
       storeValue();
       manageOperation();
       num1 = null;
+      num2 = null;
       break;
 
     case "backspace":
@@ -149,7 +150,7 @@ function operate(operator, a, b) {
 }
 
 function manageOperation() {
-  if (operator && num1 && num2) {
+  if (operator !== null && num1 !== null && num2 !== null) {
     let result = operate(operator, num1, num2);
     result = Math.ceil(result * 1000) / 1000;
     didCalculation = true;
@@ -213,10 +214,12 @@ function clearAll() {
 }
 
 function storeValue() {
-  if (num1 === null) {
-    num1 = Number(inputArray.join(""));
-  } else if (num2 === null && !didCalculation) {
-    num2 = Number(inputArray.join(""));
+  if (inputArray.length !== 0) {
+    if (num1 === null) {
+      num1 = Number(inputArray.join(""));
+    } else if (num2 === null && !didCalculation) {
+      num2 = Number(inputArray.join(""));
+    }
   }
 }
 
