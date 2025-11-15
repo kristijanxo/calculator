@@ -150,6 +150,10 @@ function operate(operator, a, b) {
 }
 
 function manageOperation() {
+  if (operator === "/" && num2 === 0) {
+    clearAll();
+    screenBottomRow.textContent = "NOPE!";
+  }
   if (operator !== null && num1 !== null && num2 !== null) {
     let result = operate(operator, num1, num2);
     result = Math.ceil(result * 1000) / 1000;
@@ -159,10 +163,6 @@ function manageOperation() {
     clearInputArray();
     inputArray.push(num1);
     updateBottomRowScreen();
-  }
-  if (operator === "/" && num2 === 0) {
-    clearAll();
-    screenBottomRow.textContent = "NOPE!";
   }
 }
 
