@@ -31,16 +31,19 @@ body {
 #app {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
-  margin-top: 50px;
-  /* height: 100vh; */
+  margin-top: 80px;
 }
 
 .calculator {
+  height: 560px;
+  width: 325px;
   background-color: var(--calc-color);
   border: 4px solid var(--border-color);
   border-radius: 12px;
   box-shadow: 6px 6px 0 var(--border-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .screen-container {
@@ -49,32 +52,41 @@ body {
   text-align: right;
   justify-content: center;
   height: 140px;
-  padding: 20px;
+  padding: 34px 20px 0px 20px;
   color: var(--text-color);
   background-color: var(--screen-color);
   border: 4px solid #2d342c;
   border-radius: 12px;
-  margin: 16px 16px 0 16px;
+  margin: 18px 16px 0 18px;
+  box-shadow: -2px -2px 0px var(--border-color);
 }
 
 .screen-top-row {
+  height: 30px;
   font-weight: 500;
   font-size: 22px;
+  overflow: hidden;
 }
 .screen-bottom-row {
+  height: 56px;
   font-size: 40px;
   font-weight: 700;
+  overflow: hidden;
 }
 
 .button-container {
-  padding: 10px;
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
 
 .button-row {
-  margin-top: 4px;
-  margin-bottom: 4px;
+  display: flex;
+  justify-content: center;
+  gap: 2px;
 }
 
 .button {
@@ -83,7 +95,7 @@ body {
   margin: 3px;
   border: 3px solid var(--border-color);
   border-radius: 12px;
-  box-shadow: 3px 3px 0 var(--border-color);
+  box-shadow: 2px 2px 0 var(--border-color);
   color: var(--text-color);
   font-family: inherit;
   font-size: 20px;
