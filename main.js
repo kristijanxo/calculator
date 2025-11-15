@@ -111,7 +111,6 @@ buttonContainer.addEventListener("click", (event) => {
 
     case "all-clear":
       clearAll();
-      updateBottomRowScreen();
       break;
   }
   logValues();
@@ -153,16 +152,50 @@ function manageOperation() {
   if (operator === "/" && num2 === 0) {
     clearAll();
     screenBottomRow.textContent = "NOPE!";
+    didCalculation = false;
   }
   if (operator !== null && num1 !== null && num2 !== null) {
     let result = operate(operator, num1, num2);
     result = Math.ceil(result * 1000) / 1000;
     didCalculation = true;
+    updateTopRowScreen();
     num1 = result;
     num2 = null;
     clearInputArray();
     inputArray.push(num1);
     updateBottomRowScreen();
+  } else {
+    didCalculation = false;
+    updateTopRowScreen();
+  }
+}
+
+function updateTopRowScreen() {
+  const MULTIPLY_SYMBOL = "\u00D7";
+  const DIVIDE_SYMBOL = "\u00F7";
+  const MINUS_SYMBOL = "\u2212";
+  const PLUS_SYMBOL = "\u002B";
+
+  if (didCalculation) {
+    switch (operator) {
+      case "/":
+        screenTopRow.textContent = `${num1} ${DIVIDE_SYMBOL} ${num2}`;
+        break;
+
+      case "*":
+        screenTopRow.textContent = `${num1} ${MULTIPLY_SYMBOL} ${num2}`;
+        break;
+
+      case "-":
+        screenTopRow.textContent = `${num1} ${MINUS_SYMBOL} ${num2}`;
+        break;
+
+      case "+":
+        screenTopRow.textContent = `${num1} ${PLUS_SYMBOL} ${num2}`;
+        break;
+    }
+  } else {
+    screenTopRow.textContent = "";
   }
 }
 
@@ -190,6 +223,7 @@ function appendDigit(input) {
   } else {
     inputArray.push(input);
   }
+  updateTopRowScreen();
 }
 
 function appendDecimalPoint() {
@@ -199,6 +233,7 @@ function appendDecimalPoint() {
   } else {
     inputArray.push(".");
   }
+  updateTopRowScreen();
 }
 
 function clearInputArray() {
@@ -211,6 +246,8 @@ function clearAll() {
   num1 = null;
   num2 = null;
   didCalculation = false;
+  updateTopRowScreen();
+  updateBottomRowScreen();
 }
 
 function storeValue() {
