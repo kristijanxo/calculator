@@ -52,7 +52,7 @@ buttonContainer.addEventListener("click", (event) => {
       break;
 
     case "nine":
-      appendDigit(8);
+      appendDigit(9);
       updateBottomRowScreen();
       break;
 
