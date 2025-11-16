@@ -26,12 +26,16 @@ body {
   font-family: "Sora", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
+  display: flex;
+  justify-content: center;
 }
 
 #app {
   display: flex;
   justify-content: center;
   margin-top: 80px;
+  display: flex;
+  flex-direction: column;
 }
 
 .calculator {
@@ -122,6 +126,7 @@ body {
 .button.misc {
   background-color: var(--misc-button-color);
 }
+
 #equals {
   background-color: var(--equals-button-color);
 }
@@ -141,4 +146,24 @@ body {
 #pop-btn:active {
   transform: scale(1.45);
   box-shadow: 12px 12px 0 var(--border-color); /* “exploding” shadow */
+}
+
+.signature {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.github-logo {
+  display: block;
+  max-width: 28px;
+  max-height: 28px;
+  transition: transform 0.3s ease-in-out;
+}
+.github-logo:hover {
+  transform: rotate(360deg) scale(1.2);
 }
